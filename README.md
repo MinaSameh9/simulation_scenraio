@@ -20,8 +20,8 @@ This document outlines the steps to set up and run a ROS (Robot Operating System
 
 2. **Launch the Map Server with the Scanned Map**
    ```bash
-   rosrun map_server map_server ~/catkin_ws/src/my_sim_package/maps/my_scanned_map.yaml
-   ```
+rosrun map_server map_server /home/minaelraheb/catkin_ws/src/my_robot/teb_local_planner_tutorials/maps/my_static_map.yaml
+```
 
 3. **Launch Gazebo with the Generated World File**
    ```bash
