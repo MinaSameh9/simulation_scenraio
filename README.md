@@ -18,31 +18,29 @@ This document outlines the steps to set up and run a ROS (Robot Operating System
    roscore
    ```
 
-2. **Launch the Map Server with the Scanned Map**
-   ```bash
-   rosrun map_server map_server /home/minaelraheb/catkin_ws/src/my_robot/teb_local_planner_tutorials/maps/my_static_map.yaml
-   ```
-
-3. **Launch the robot_stage**
+2. **Launch the robot_stage**
    ```bash
    roslaunch teb_local_planner_tutorials robot_diff_drive_in_stage.launch
    ```
    *Note*: This assumes you have generated a `.world` file (`my_scanned_map.world`) corresponding to the scanned map for use in stage. If using a different simulator (e.g., gazebo), replace this step with the appropriate launch file.
 
-4. **Launch the TEB Local Planner Simulation**
+   ## Using the scanned map :
+1. **Launch the Map Server with the Scanned Map**
    ```bash
-   roslaunch teb_local_planner_tutorials robot_diff_drive_in_stage.launch
+   rosrun map_server map_server /home/minaelraheb/catkin_ws/src/my_robot/teb_local_planner_tutorials/maps/my_static_map.yaml
    ```
-   *Note*: This assumes the `teb_local_planner_tutorials` package provides a launch file like `robot_diff_drive_in_stage.launch` for a differential drive robot. If using Gazebo, replace with a Gazebo-compatible launch file (e.g., `robot_diff_drive_in_gazebo.launch`) from your custom package.
-
-5. **Publish Static Transform (Optional)**
+2. **Launch the differential drive robot with the teb_local_planner and costmap conversion enabled in stage:**
+   ```bash
+   roslaunch teb_local_planner_tutorials mina.launch 
+   ```
+3. **Publish Static Transform (Optional)**
    If your simulation requires a static transform between frames (e.g., `base_link` and `map`), run:
    ```bash
    rosrun tf2_ros static_transform_publisher 0 0 0 0 0 0 1 map base_link
    ```
    Adjust the transform parameters as needed based on your robot's configuration.
 
-6. **Run RViz for Visualization**
+4. **Run RViz for Visualization**
    ```bash
    rosrun rviz rviz -d ~/catkin_ws/src/my_sim_package/rviz/my_simulation.rviz
    ```
