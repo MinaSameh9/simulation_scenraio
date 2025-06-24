@@ -23,11 +23,11 @@ This document outlines the steps to set up and run a ROS (Robot Operating System
    rosrun map_server map_server /home/minaelraheb/catkin_ws/src/my_robot/teb_local_planner_tutorials/maps/my_static_map.yaml
    ```
 
-3. **Launch Gazebo with the Generated World File**
+3. **Launch the robot_stage**
    ```bash
-   roslaunch gazebo_ros empty_world.launch world_name:=~/catkin_ws/src/my_sim_package/maps/my_scanned_map.world
+   roslaunch teb_local_planner_tutorials robot_diff_drive_in_stage.launch
    ```
-   *Note*: This assumes you have generated a `.world` file (`my_scanned_map.world`) corresponding to the scanned map for use in Gazebo. If using a different simulator (e.g., Stage), replace this step with the appropriate launch file.
+   *Note*: This assumes you have generated a `.world` file (`my_scanned_map.world`) corresponding to the scanned map for use in stage. If using a different simulator (e.g., gazebo), replace this step with the appropriate launch file.
 
 4. **Launch the TEB Local Planner Simulation**
    ```bash
